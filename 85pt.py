@@ -23,6 +23,11 @@ class MyApp:
 		# Do not change <Button-1> when you create Button 2 :)
 		self.button1.bind("<Button-1>", self.button1Click) ### (1)
 		
+		self.button2 = Button(self.myContainer1)
+	        self.button2.configure(text='Cancel', background='red')
+	        self.button2.grid(row=0,column=1)
+	        self.button2.bind('<Button-1>', self.button2Click)
+		
 		
 	def button1Click(self, event):    ### (3)
 		if self.button1["background"] == "green": ### (4)
@@ -30,6 +35,11 @@ class MyApp:
 		else:
 			self.button1["background"] = "green"
 	
+	def button2Click(self, event):    
+		if self.button2["background"] == "blue": 
+			self.button2["background"] = "red"
+		else:
+			self.button2["background"] = "blue"
 		
 root = Tk()
 myapp = MyApp(root)
